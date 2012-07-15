@@ -1,0 +1,20 @@
+CHANGES
+
+1.5
+. Added CHANGE_WIFI_STATE permission for android version 2.3.4
+
+1.4
+. Integrated bugsense error handling
+. added VIBRATE permission: needed for notifications
+
+1.3
+. reverted to install on sdcard since it might give problems on some older versions of Android
+. fixed a bug that could lead to loss of credentials on upgrade on some devices
+
+1.2
+. added notifications on login 
+. added settings screen to enable/disable notifications
+. Changed copy of About-screen
+
+1.1 
+. first release

@@ -1,0 +1,19 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"> 
+<CheckBoxPreference 
+    android:key="show_notifications" 
+    android:persistent="true" 
+    android:title="Show Notifications" 
+    android:summary="Do you want to be notified when we logged in?" />
+<EditTextPreference
+    android:key="userid_homespot" 
+    android:persistent="true" 
+    android:title="Homespot Username" 
+    android:summary="If your Homespot-login is different from Hotspot-login" />
+<EditTextPreference
+    android:key="userpw_homespot" 
+    android:persistent="true" 
+    android:title="Homespot Password"
+    android:password="true" 
+    android:summary="If your Homespot-login is different from Hotspot-login" />
+	
+</PreferenceScreen>
