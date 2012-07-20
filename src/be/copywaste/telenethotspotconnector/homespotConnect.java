@@ -1,5 +1,8 @@
 package be.copywaste.telenethotspotconnector;
 
+import be.copywaste.telenethotspotconnector.wispr.LoggerResult;
+import be.copywaste.telenethotspotconnector.wispr.WISPrLogger;
+
 public class homespotConnect extends baseConnect {
 	private static final String logouturl = "https://portal.telenethomespot.be/portal/wispr/logout.do";
 	
@@ -16,7 +19,7 @@ public class homespotConnect extends baseConnect {
 		WISPrLogger logger = new WISPrLogger();
 		LoggerResult result = logger.login(userid, userpw);
 		telenetHotspotConnectorApplication.logger(result.toString());
-		login_status = result.result.equalsIgnoreCase("50");
+		login_status = result.getResult().equalsIgnoreCase("50");
 		
 		return login_status;
 	}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <com.commonsware.cwac.tlv.TouchListView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tlv="http://schemas.android.com/apk/res/be.copywaste.telenethotspotconnector"
+
+    android:id="@android:id/list"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:drawSelectorOnTop="false"
+    tlv:dragndrop_background="#E8E8E8"
+    tlv:normal_height="64dip"
+    tlv:grabber="@+id/draghandle"
+    tlv:remove_mode="none"
+	/>
+</LinearLayout>

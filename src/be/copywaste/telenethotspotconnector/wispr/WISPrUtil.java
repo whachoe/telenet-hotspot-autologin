@@ -1,4 +1,4 @@
-package be.copywaste.telenethotspotconnector;
+package be.copywaste.telenethotspotconnector.wispr;
 
 public class WISPrUtil {
 	public static final String WISPR_TAG_NAME = "WISPAccessGatewayParam";

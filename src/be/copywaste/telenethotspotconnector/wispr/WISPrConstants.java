@@ -1,4 +1,4 @@
-package be.copywaste.telenethotspotconnector;
+package be.copywaste.telenethotspotconnector.wispr;
 
 public class WISPrConstants {
 	public static String WISPR_MESSAGE_TYPE_INITIAL = "100";

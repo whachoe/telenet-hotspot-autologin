@@ -142,7 +142,7 @@ public class telenetHotspotConnectorApplication extends Application {
 		return null;    	
     }
     
-    protected static String getSSLPage(String url) throws ApiException
+    public static String getSSLPage(String url) throws ApiException
     {
     	// We're doing SSL here
 		SchemeRegistry schemeRegistry = new SchemeRegistry();

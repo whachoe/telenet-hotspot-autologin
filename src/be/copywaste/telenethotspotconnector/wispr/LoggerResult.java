@@ -1,4 +1,4 @@
-package be.copywaste.telenethotspotconnector;
+package be.copywaste.telenethotspotconnector.wispr;
 
 public class LoggerResult {
 	protected String result;

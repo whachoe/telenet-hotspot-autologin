@@ -40,16 +40,23 @@
 
 <TableLayout
     android:layout_width="fill_parent"
-    android:layout_height="228dp"
-    android:background="@drawable/border" >
+    android:layout_height="160dp"
+    android:background="@drawable/border" 
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    >
 
 	<TableRow
-		android:layout_span="2"
+	    android:layout_span="2"
+	    android:gravity="center_horizontal"
 	>
 		<TextView 
 		   android:id="@+id/Connected"
 		   android:layout_width="fill_parent"
-		   android:layout_height="wrap_content"
+		   android:layout_height="wrap_content" 
+		   android:layout_gravity="center_horizontal" 
+		   android:gravity="center_horizontal"
 		   />
 	</TableRow>
 	
@@ -138,19 +145,19 @@
 	</TableRow>
 </TableLayout>
 
-<ToggleButton
-    android:id="@+id/loginbutton"
-    android:layout_width="284dp"
-    android:layout_height="60dip"
-    android:layout_marginLeft="15dip"
-    android:layout_marginRight="15dip"
-    android:gravity="bottom|center_horizontal"
-    android:onClick="onClick"
-    android:textColor="#aaaaaa"
-    android:textOff="@string/loginbutton_off_text"
-    android:textOn="@string/loginbutton_on_text"
-    android:textSize="12dip"
-    android:textStyle="bold"
-    android:typeface="sans" />
+<ToggleButton 
+    android:id="@+id/loginbutton" 
+    android:layout_width="fill_parent" 
+    android:layout_height="66dp" 
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp" 
+    android:layout_marginRight="15dp"
+    android:layout_gravity="bottom|center_horizontal" 
+    android:onClick="onClick" 
+    android:paddingBottom="22dp"
+    android:textColor="#aaaaaa" 
+    android:textOff="@string/loginbutton_off_text" 
+    android:textOn="@string/loginbutton_on_text" 
+/>
    
 </LinearLayout>

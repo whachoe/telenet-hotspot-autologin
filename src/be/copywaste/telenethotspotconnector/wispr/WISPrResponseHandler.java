@@ -1,4 +1,4 @@
-package be.copywaste.telenethotspotconnector;
+package be.copywaste.telenethotspotconnector.wispr;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;

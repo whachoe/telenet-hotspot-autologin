@@ -1,4 +1,4 @@
-package be.copywaste.telenethotspotconnector;
+package be.copywaste.telenethotspotconnector.wispr;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,6 +11,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.xml.sax.SAXException;
 
+import be.copywaste.telenethotspotconnector.telenetHotspotConnectorApplication;
 import be.copywaste.telenethotspotconnector.telenetHotspotConnectorApplication.ApiException;
 
 public class WISPrLogger implements WebLogger {
