@@ -34,7 +34,6 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="@string/savebutton_str"
-		android:onClick="onClick"
 	/>
 </LinearLayout>
 
@@ -46,7 +45,6 @@
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     >
-
 	<TableRow
 	    android:layout_span="2"
 	    android:gravity="center_horizontal"
@@ -153,7 +151,6 @@
     android:layout_marginLeft="15dp" 
     android:layout_marginRight="15dp"
     android:layout_gravity="bottom|center_horizontal" 
-    android:onClick="onClick" 
     android:paddingBottom="22dp"
     android:textColor="#aaaaaa" 
     android:textOff="@string/loginbutton_off_text" 

@@ -1,19 +1,59 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"> 
-<CheckBoxPreference 
-    android:key="show_notifications" 
-    android:persistent="true" 
-    android:title="Show Notifications" 
-    android:summary="Do you want to be notified when we logged in?" />
-<EditTextPreference
-    android:key="userid_homespot" 
-    android:persistent="true" 
-    android:title="Homespot Username" 
-    android:summary="If your Homespot-login is different from Hotspot-login" />
-<EditTextPreference
-    android:key="userpw_homespot" 
-    android:persistent="true" 
-    android:title="Homespot Password"
-    android:password="true" 
-    android:summary="If your Homespot-login is different from Hotspot-login" />
-	
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:key="show_notifications"
+        android:persistent="true"
+        android:summary="Do you want to be notified when logged in?"
+        android:title="Show Notifications" />
+
+    <PreferenceCategory android:title="Telenet Hotspot" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="login_hotspot"
+            android:persistent="true"
+            android:summary="Do you want to log into Telenet Hotspots?"
+            android:title="Enable" />
+        <EditTextPreference
+            android:dependency="login_hotspot"
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:key="userid"
+            android:persistent="true"
+            android:summary="If your Hotspot-login is different from Homespot-login"
+            android:title="Hotspot Username" />
+        <EditTextPreference
+            android:dependency="login_hotspot"
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:key="userpw"
+            android:password="true"
+            android:persistent="true"
+            android:summary="If your Hotspot-login is different from Homespot-login"
+            android:title="Hotspot Password" />
+        
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="Telenet Homespot" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="login_homespot"
+            android:persistent="true"
+            android:summary="Do you want to log into Telenet Homespots?"
+            android:title="Enable" />
+
+        <EditTextPreference
+            android:key="userid_homespot"
+            android:dependency="login_homespot"
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:persistent="true"
+            android:summary="If your Homespot-login is different from Hotspot-login"
+            android:title="Homespot Username" />
+        <EditTextPreference
+            android:key="userpw_homespot"
+            android:dependency="login_homespot"
+            android:layout="?android:attr/preferenceLayoutChild"
+            android:password="true"
+            android:persistent="true"
+            android:summary="If your Homespot-login is different from Hotspot-login"
+            android:title="Homespot Password" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

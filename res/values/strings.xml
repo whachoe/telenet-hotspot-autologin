@@ -15,4 +15,6 @@
     <string name="username_label">Username</string>
     <string name="password_label">Password</string>
     <string name="save_succesful">Hotspot list saved succesfully!</string>
+    <string name="login_and_password_saved">Login and password saved</string>
+    <string name="error_saving">There was a problem while saving your credentials. Please try again</string>
 </resources>

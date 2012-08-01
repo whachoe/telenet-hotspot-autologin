@@ -1,6 +1,5 @@
 package be.copywaste.telenethotspotconnector.fragments;
 
-import android.app.ActionBar.LayoutParams;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -9,11 +8,10 @@ import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.Layout;
 import android.util.SparseArray;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,7 +22,7 @@ import be.copywaste.telenethotspotconnector.telenetHotspotConnectorApplication;
 
 import com.actionbarsherlock.app.SherlockFragment;
 
-public class MainFragment extends SherlockFragment implements View.OnClickListener {
+public class MainFragment extends SherlockFragment {
 	// Properties
 	TextView textConnected, textIp, textSsid, textBssid, textMac, textSpeed,
 			textRssi;
@@ -69,13 +67,50 @@ public class MainFragment extends SherlockFragment implements View.OnClickListen
 		userpwview.setText(prefs.getString("userpw", ""));
 
 		// Initializing
-		textConnected.setText("--- DISCONNECTED! ---");
+		textConnected.setText("--- DISCONNECTED ---");
 		textIp.setText("---");
 		textSsid.setText("---");
 		textBssid.setText("---");
 		textSpeed.setText("---");
 		textRssi.setText("---");
 		textMac.setText("---");
+		
+		// What to do when we clicked the 'save' button:
+		root.findViewById(R.id.savebutton).setOnClickListener( new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Save those values
+				Editor editor = prefs.edit();
+				editor.putString("userid", useridview.getText().toString().trim());
+				editor.putString("userpw", userpwview.getText().toString().trim());
+				if (prefs.getString("userid_homespot", "") == "")
+					editor.putString("userid_homespot", useridview.getText().toString().trim());
+				if (prefs.getString("userpw_homespot", "") == "")
+					editor.putString("userpw_homespot", userpwview.getText().toString().trim());
+				
+				if (editor.commit()) {
+					Toast.makeText(getActivity(), R.string.login_and_password_saved, Toast.LENGTH_SHORT).show();
+				} else {
+					Toast.makeText( getActivity(),
+									R.string.error_saving,
+									Toast.LENGTH_LONG).show();
+				}
+			}
+		});
+		
+		// What to do when we click the 'login' button:
+		loginbutton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				ToggleButton button = (ToggleButton) v;
+				if (button.isChecked()) {
+					new AsyncLogin().execute();
+				} else {
+					// LOG OFF
+					new AsyncLogout().execute();
+				}
+			}
+		});
 	}
 	
 	@Override
@@ -94,44 +129,7 @@ public class MainFragment extends SherlockFragment implements View.OnClickListen
 	public void onStop() {
 		super.onStop();
 	}
-	
 
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.savebutton:
-
-			// Save those values
-			Editor editor = prefs.edit();
-			editor.putString("userid", useridview.getText().toString().trim());
-			editor.putString("userpw", userpwview.getText().toString().trim());
-			if (prefs.getString("userid_homespot", "") == "")
-				editor.putString("userid_homespot", useridview.getText().toString().trim());
-			if (prefs.getString("userpw_homespot", "") == "")
-				editor.putString("userpw_homespot", userpwview.getText().toString().trim());
-			
-			if (editor.commit()) {
-				Toast.makeText(getActivity(), "Login and password saved!", Toast.LENGTH_SHORT).show();
-			} else {
-				Toast.makeText( getActivity(),
-								"There was a problem while saving your credentials. Please try again",
-								Toast.LENGTH_LONG).show();
-			}
-			break;
-
-		case R.id.loginbutton:
-			ToggleButton button = (ToggleButton) v;
-			if (button.isChecked()) {
-				new AsyncLogin().execute();
-			} else {
-				// LOG OFF
-				new AsyncLogout().execute();
-			}
-
-			break;
-		}
-	}
-	
 	class AsyncLogin extends AsyncTask<Void, String, Boolean> {
 
 		protected Boolean doInBackground(Void... params) {

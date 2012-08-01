@@ -34,7 +34,20 @@ public class wifiReceiver extends BroadcastReceiver {
 			
 			// Checking SSID
 			if (ssid != null && (ssid.equals(telenetHotspotConnectorApplication.hotspotssid) || ssid.equals(telenetHotspotConnectorApplication.homespotssid))) {
+				// This string is just used for the notification message
 				String hotspotname = (ssid.equals(telenetHotspotConnectorApplication.hotspotssid) ? "Hotspot" : "Homespot");
+
+				// If the user asked not to log into hotspots: just leave now
+				if (ssid.equals(telenetHotspotConnectorApplication.hotspotssid)
+				&&	!prefs.getBoolean("login_hotspot", true)) {
+					return;
+				}
+				
+				// If the user asked not to log into homespots: just leave now
+				if (ssid.equals(telenetHotspotConnectorApplication.homespotssid)
+				&&	!prefs.getBoolean("login_homespot", true)) { 		
+					return;
+				}
 				
 				// Log the IP
 				telenetHotspotConnectorApplication.logger("IP: "+String.valueOf(myWifiInfo.getIpAddress()));
