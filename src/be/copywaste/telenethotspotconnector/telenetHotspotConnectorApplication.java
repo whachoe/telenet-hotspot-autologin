@@ -33,7 +33,7 @@ import android.util.Log;
 import android.util.SparseArray;
 
 public class telenetHotspotConnectorApplication extends Application {
-    public static final boolean DEV = false;
+    public static final boolean DEV = true;
     public static final String LOGGER_TAG = "hotspotConnector";
     // public static final String hotspotssid = "404 Network not available"; // testing
     public static final String hotspotssid = "TELENETHOTSPOT";
@@ -277,6 +277,8 @@ public class telenetHotspotConnectorApplication extends Application {
     }
     
     public static boolean doLogin(String ssid, String userid, String userpw) {
+    	logger("doLogin: "+userid+" "+userpw);
+    	
     	if (ssid.equals(hotspotssid)) {
     		connector = (hotspotConnect) new hotspotConnect(userid, userpw);
     	}

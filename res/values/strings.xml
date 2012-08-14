@@ -4,10 +4,6 @@
     <string name="savebutton_str">Save</string>
     <string name="loginbutton_on_text">Logged in</string>
     <string name="loginbutton_off_text">Logged off</string>
-    <string name="tab_main">Main</string>
-    <string name="tab_hotspotlist">List</string>
-    <string name="tab_preferences">Settings</string>
-    <string name="tab_about">About</string>
     <string name="menu_about">About</string>
     <string name="helptext">This app is useful for Telenet customers who also have a Telenet Hotspot subscription.\n 
     Just save your username and password and the app will automatically log you in when you are connected to a Telenet Hotspot.\n 
@@ -21,6 +17,10 @@
     Written and published by jo.giraerts@gmail.com
     
     </string>
+    <string name="tab_main">Main</string>
+	<string name="tab_hotspotlist">List</string>
+	<string name="tab_preferences">Settings</string>
+	<string name="tab_about">About</string>
     <string name="menu_preferences">Settings</string>
     <string name="username_label">Username</string>
     <string name="password_label">Password</string>
@@ -31,5 +31,6 @@
     <string name="login_saved">Login and password saved!"</string>
     <string name="login_success">Logged in successfully</string>
     <string name="login_failed">Login failed</string>
-    <string name="login_failed_nopw">Login failed: Empty username/password</string>    
+    <string name="login_failed_nopw">Login failed: Empty username/password</string>
+    <string name="save_succesful">List succesfully saved</string>
 </resources>

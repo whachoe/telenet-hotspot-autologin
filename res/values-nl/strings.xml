@@ -17,6 +17,10 @@
     Geschreven en gepubliceerd door jo.giraerts@gmail.com
     
     </string>
+    <string name="tab_main">Aanmelden</string>
+	<string name="tab_hotspotlist">Lijst</string>
+	<string name="tab_preferences">Voorkeuren</string>
+	<string name="tab_about">Help</string>
     <string name="menu_preferences">Voorkeuren</string>
     <string name="username_label">Gebruikersnaam</string>
     <string name="password_label">Wachtwoord</string>
@@ -28,4 +32,5 @@
     <string name="login_success">U bent aangemeld</string>
     <string name="login_failed">Aanmelden niet gelukt</string>
     <string name="login_failed_nopw">Aanmelden niet gelukt: Lege gebruikersnaam/wachtwoord</string>
+    <string name="save_succesful">HotspotLijst is bewaard</string>
 </resources>

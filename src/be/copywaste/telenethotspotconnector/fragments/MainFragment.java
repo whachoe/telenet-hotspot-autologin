@@ -1,8 +1,12 @@
 package be.copywaste.telenethotspotconnector.fragments;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.net.ConnectivityManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
@@ -30,6 +34,15 @@ public class MainFragment extends SherlockFragment {
 	EditText useridview, userpwview;
 	private static SharedPreferences prefs;
 	private View root;
+	
+	BroadcastReceiver networkStateReceiver = new BroadcastReceiver() {
+	    @Override
+	    public void onReceive(Context context, Intent intent) {
+	    	new AsyncWifiInfo().execute();
+	    }
+	};
+	
+	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -67,7 +80,7 @@ public class MainFragment extends SherlockFragment {
 		userpwview.setText(prefs.getString("userpw", ""));
 
 		// Initializing
-		textConnected.setText("--- DISCONNECTED ---");
+		textConnected.setText(getString(R.string.disconnected));
 		textIp.setText("---");
 		textSsid.setText("---");
 		textBssid.setText("---");
@@ -83,17 +96,15 @@ public class MainFragment extends SherlockFragment {
 				Editor editor = prefs.edit();
 				editor.putString("userid", useridview.getText().toString().trim());
 				editor.putString("userpw", userpwview.getText().toString().trim());
-				if (prefs.getString("userid_homespot", "") == "")
+				if (prefs.getString("userid_homespot", "").length() == 0)
 					editor.putString("userid_homespot", useridview.getText().toString().trim());
-				if (prefs.getString("userpw_homespot", "") == "")
+				if (prefs.getString("userpw_homespot", "").length() == 0)
 					editor.putString("userpw_homespot", userpwview.getText().toString().trim());
 				
 				if (editor.commit()) {
-					Toast.makeText(getActivity(), R.string.login_and_password_saved, Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(), getString(R.string.login_saved), Toast.LENGTH_SHORT).show();
 				} else {
-					Toast.makeText( getActivity(),
-									R.string.error_saving,
-									Toast.LENGTH_LONG).show();
+					Toast.makeText( getActivity(),getString(R.string.prefs_save_error),Toast.LENGTH_LONG).show();
 				}
 			}
 		});
@@ -122,7 +133,16 @@ public class MainFragment extends SherlockFragment {
 	public void onResume() {
 		super.onResume();
 		
-		new AsyncWifiInfo().execute();		
+		IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);        
+		getActivity().registerReceiver(networkStateReceiver, filter);
+		
+		new AsyncWifiInfo().execute();
+	}
+	
+	@Override
+	public void onPause() {
+		getActivity().unregisterReceiver(networkStateReceiver);
+		super.onPause();
 	}
 	
 	@Override
@@ -189,7 +209,11 @@ public class MainFragment extends SherlockFragment {
 				result = new AsyncWifiInfoResult();
 			
 				result.info = myWifiInfo;
-				result.webIsReachable = telenetHotspotConnectorApplication.webIsReachable();
+				try {
+					result.webIsReachable = telenetHotspotConnectorApplication.webIsReachable();
+				} catch (Exception e) {
+					result.webIsReachable = false;
+				}
 			}
 			return result;
 		}
@@ -201,7 +225,7 @@ public class MainFragment extends SherlockFragment {
 			
 			WifiInfo myWifiInfo = result.info;
 			if (myWifiInfo != null && myWifiInfo.getSSID() != null) {
-				textConnected.setText("--- CONNECTED ---");
+				textConnected.setText(getString(R.string.connected));
 				
 				int myIp = myWifiInfo.getIpAddress();
 				int myIpSegment1 = myIp >> 24 & 0xFF;
@@ -236,7 +260,7 @@ public class MainFragment extends SherlockFragment {
 					loginbutton.setVisibility(View.INVISIBLE);
 				}
 			} else {
-				textConnected.setText("--- DISCONNECTED! ---");
+				textConnected.setText(getString(R.string.disconnected));
 				textIp.setText("---");
 				textSsid.setText("---");
 				textBssid.setText("---");

@@ -118,7 +118,7 @@ public class FavWiFiFragment extends SherlockListFragment {
 		}
 		
 		adapter.notifyDataSetChanged();
-		Toast.makeText(getActivity(), R.string.save_succesful, Toast.LENGTH_LONG).show();
+		Toast.makeText(getActivity(), getString(R.string.save_succesful), Toast.LENGTH_LONG).show();
 		super.onPause();
 	}
 }
