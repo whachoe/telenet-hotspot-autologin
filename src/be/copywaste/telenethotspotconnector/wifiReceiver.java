@@ -57,7 +57,7 @@ public class wifiReceiver extends BroadcastReceiver {
 							NotificationManager mgr=(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 							Notification note=new Notification(R.drawable.icon, "Telenet "+hotspotname+" AutoLogin", System.currentTimeMillis()); 
 							PendingIntent i=PendingIntent.getActivity(context, 0, new Intent(context, telenetHotspotConnector.class), 0);
-							note.setLatestEventInfo(context, "Telenet "+hotspotname+" AutoLogin", "Logged in successfully", i);
+							note.setLatestEventInfo(context, "Telenet "+hotspotname+" AutoLogin", context.getString(R.string.login_success), i);
 							note.flags|=Notification.FLAG_AUTO_CANCEL;
 							mgr.notify(9876, note);
 						}
@@ -67,7 +67,7 @@ public class wifiReceiver extends BroadcastReceiver {
 							NotificationManager mgr=(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 							Notification note=new Notification(R.drawable.icon, "Telenet "+hotspotname+" AutoLogin", System.currentTimeMillis()); 
 							PendingIntent i=PendingIntent.getActivity(context, 0, new Intent(context, telenetHotspotConnector.class), 0);
-							note.setLatestEventInfo(context, "Telenet "+hotspotname+" AutoLogin","Login failed", i);
+							note.setLatestEventInfo(context, "Telenet "+hotspotname+" AutoLogin",context.getString(R.string.login_failed), i);
 							note.flags|=Notification.FLAG_AUTO_CANCEL;
 							mgr.notify(9876, note);
 						}
@@ -77,7 +77,7 @@ public class wifiReceiver extends BroadcastReceiver {
 					NotificationManager mgr=(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 					Notification note=new Notification(R.drawable.icon, "Telenet "+hotspotname+" AutoLogin", System.currentTimeMillis()); 
 					PendingIntent i=PendingIntent.getActivity(context, 0, new Intent(context, telenetHotspotConnector.class), 0);
-					note.setLatestEventInfo(context, "Telenet "+hotspotname+" AutoLogin", "Login failed: Empty username/password", i);
+					note.setLatestEventInfo(context, "Telenet "+hotspotname+" AutoLogin", context.getString(R.string.login_failed_nopw), i);
 					note.defaults |= Notification.DEFAULT_VIBRATE;
 					note.defaults |= Notification.DEFAULT_SOUND;
 					note.flags |=Notification.FLAG_AUTO_CANCEL;

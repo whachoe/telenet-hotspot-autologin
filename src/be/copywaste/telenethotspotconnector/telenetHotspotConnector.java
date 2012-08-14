@@ -60,7 +60,7 @@ public class telenetHotspotConnector extends Activity implements
 		userpwview.setText(prefs.getString("userpw", ""));
 
 		// Initializing
-		textConnected.setText("--- DISCONNECTED! ---");
+		textConnected.setText(getString(R.string.disconnected));
 		textIp.setText("---");
 		textSsid.setText("---");
 		textBssid.setText("---");
@@ -96,17 +96,15 @@ public class telenetHotspotConnector extends Activity implements
 			Editor editor = prefs.edit();
 			editor.putString("userid", useridview.getText().toString().trim());
 			editor.putString("userpw", userpwview.getText().toString().trim());
-			if (prefs.getString("userid_homespot", "") == "")
+			if (prefs.getString("userid_homespot", "").length() == 0)
 				editor.putString("userid_homespot", useridview.getText().toString().trim());
-			if (prefs.getString("userpw_homespot", "") == "")
+			if (prefs.getString("userpw_homespot", "").length() == 0)
 				editor.putString("userpw_homespot", userpwview.getText().toString().trim());
 			
 			if (editor.commit()) {
-				Toast.makeText(this, "Login and password saved!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, R.string.login_saved, Toast.LENGTH_SHORT).show();
 			} else {
-				Toast.makeText( this,
-								"There was a problem while saving your credentials. Please try again",
-								Toast.LENGTH_LONG).show();
+				Toast.makeText( this, R.string.prefs_save_error, Toast.LENGTH_LONG).show();
 			}
 			break;
 
@@ -213,7 +211,7 @@ public class telenetHotspotConnector extends Activity implements
 		protected void onPostExecute(AsyncWifiInfoResult result) {
 			WifiInfo myWifiInfo = result.info;
 			if (myWifiInfo != null && myWifiInfo.getSSID() != null) {
-				textConnected.setText("--- CONNECTED ---");
+				textConnected.setText(getString(R.string.connected));
 				
 				int myIp = myWifiInfo.getIpAddress();
 				int myIpSegment1 = myIp >> 24 & 0xFF;
@@ -248,7 +246,7 @@ public class telenetHotspotConnector extends Activity implements
 					loginbutton.setVisibility(View.INVISIBLE);
 				}
 			} else {
-				textConnected.setText("--- DISCONNECTED! ---");
+				textConnected.setText(getString(R.string.disconnected));
 				textIp.setText("---");
 				textSsid.setText("---");
 				textBssid.setText("---");

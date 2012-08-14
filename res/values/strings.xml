@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-    <string name="hello">Hello World, telenetHotspotConnector!</string>
     <string name="app_name">TelenetHotspot AutoLogin</string>
     <string name="savebutton_str">Save</string>
     <string name="loginbutton_on_text">Logged in</string>
@@ -9,14 +8,24 @@
     <string name="helptext">This app is useful for Telenet customers who also have a Telenet Hotspot subscription.\n 
     Just save your username and password and the app will automatically log you in when you are connected to a Telenet Hotspot.\n 
     No need to keep the application running, we just listen for changes in the WIFI-connection.\n 
-    When you are connected to a Telenet Hotspot, this app will also show you a login/logout button to manually log in/out.
+    When you are connected to a Telenet Hotspot, this app will also show you a login/logout button to manually log in/out.\n
+    You can also sort your favourite WIFI-stations. In case there\'s more than 1 available, the highest in the list will be chosen.\n
+    This is especially important if you also run a Homespot at home but rather want to be logged into your private WIFI-network.\n
     </string>
     <string name="aboutfooter">
-    <![CDATA[
+    
     Written and published by jo.giraerts@gmail.com
-    ]]>
+    
     </string>
     <string name="menu_preferences">Settings</string>
     <string name="username_label">Username</string>
     <string name="password_label">Password</string>
+    <string name="telenet_hotspot_autologin_about">TelenetHotspot AutoLogin - About</string>
+    <string name="connected">--- Connected ---</string>
+    <string name="disconnected">--- DISCONNECTED! ---</string>
+    <string name="prefs_save_error">There was a problem while saving your credentials. Please try again</string>
+    <string name="login_saved">Login and password saved!"</string>
+    <string name="login_success">Logged in successfully</string>
+    <string name="login_failed">Login failed</string>
+    <string name="login_failed_nopw">Login failed: Empty username/password</string>    
 </resources>
