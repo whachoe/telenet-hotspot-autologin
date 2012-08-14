@@ -40,6 +40,7 @@ public class telenetHotspotConnectorApplication extends Application {
     public static final String homespotssid = "TELENETHOMESPOT";
     public static final String testurl = "http://copywaste.org/status.html";
     
+    private static final String USER_AGENT = "Copywaste Telenet Hotspot Autologin";
     private static final int HTTP_STATUS_OK = 200;
 	private static byte[] sBuffer = new byte[512];
 	
@@ -111,7 +112,7 @@ public class telenetHotspotConnectorApplication extends Application {
 		// Loading client with timeout-params
 		HttpClient client = new DefaultHttpClient(mgr, httpParameters);	
 		HttpPost poster = new HttpPost(loginurl);
-		poster.setHeader("User-Agent", "CopyWaste Telenet Hotspot Connector");
+		poster.setHeader("User-Agent", USER_AGENT);
 		
 		// Parameters
 		try {
@@ -166,7 +167,7 @@ public class telenetHotspotConnectorApplication extends Application {
         HttpClient client = new DefaultHttpClient(mgr, httpParameters);
 
         HttpGet getter = new HttpGet(url);
-        getter.setHeader("User-Agent", "TelenetHotspot AutoLogin");
+        getter.setHeader("User-Agent", USER_AGENT);
 
         try {
             HttpResponse response = client.execute(getter);
@@ -206,7 +207,7 @@ public class telenetHotspotConnectorApplication extends Application {
         HttpClient client = new DefaultHttpClient(httpParameters);
 
         HttpGet getter = new HttpGet(url);
-        getter.setHeader("User-Agent", "TelenetHotspot AutoLogin");
+        getter.setHeader("User-Agent", USER_AGENT);
 
         try {
             HttpResponse response = client.execute(getter);

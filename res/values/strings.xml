@@ -9,12 +9,27 @@
     <string name="tab_preferences">Settings</string>
     <string name="tab_about">About</string>
     <string name="menu_about">About</string>
-    <string name="helptext">This app is useful for Telenet customers who also have a Telenet Hotspot subscription.\nJust save your username and password and the app will automatically log you in when you are connected to a Telenet Hotspot.\n\nNo need to keep the application running, we just listen for changes in the WIFI-connection.\nWhen you are connected to a Telenet Hotspot, this app will also show you a login/logout button to manually log in/out.\n\nYou can also sort your hotspots connection order. Items on top of the list, will be prefered before items after them. This way you can put your favourite wireless networks on top to be sure you get connected to them first.</string>
-    <string name="aboutfooter">Written and published by jo.giraerts@gmail.com</string>
+    <string name="helptext">This app is useful for Telenet customers who also have a Telenet Hotspot subscription.\n 
+    Just save your username and password and the app will automatically log you in when you are connected to a Telenet Hotspot.\n 
+    No need to keep the application running, we just listen for changes in the WIFI-connection.\n 
+    When you are connected to a Telenet Hotspot, this app will also show you a login/logout button to manually log in/out.\n
+    You can also sort your favourite WIFI-stations. In case there\'s more than 1 available, the highest in the list will be chosen.\n
+    This is especially important if you also run a Homespot at home but rather want to be logged into your private WIFI-network.\n
+    </string>
+    <string name="aboutfooter">
+    
+    Written and published by jo.giraerts@gmail.com
+    
+    </string>
     <string name="menu_preferences">Settings</string>
     <string name="username_label">Username</string>
     <string name="password_label">Password</string>
-    <string name="save_succesful">Hotspot list saved succesfully!</string>
-    <string name="login_and_password_saved">Login and password saved</string>
-    <string name="error_saving">There was a problem while saving your credentials. Please try again</string>
+    <string name="telenet_hotspot_autologin_about">TelenetHotspot AutoLogin - About</string>
+    <string name="connected">--- Connected ---</string>
+    <string name="disconnected">--- DISCONNECTED! ---</string>
+    <string name="prefs_save_error">There was a problem while saving your credentials. Please try again</string>
+    <string name="login_saved">Login and password saved!"</string>
+    <string name="login_success">Logged in successfully</string>
+    <string name="login_failed">Login failed</string>
+    <string name="login_failed_nopw">Login failed: Empty username/password</string>    
 </resources>

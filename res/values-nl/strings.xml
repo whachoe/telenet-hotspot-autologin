@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">TelenetHotspot AutoLogin</string>
+    <string name="savebutton_str">Bewaar</string>
+    <string name="loginbutton_on_text">Aangemeld</string>
+    <string name="loginbutton_off_text">Niet aangemeld</string>
+    <string name="menu_about">Help</string>
+    <string name="helptext">Deze applicatie is nuttig voor Telenet klanten die een hotspot/homespot abonnement hebben.\n
+    Bewaar jouw gebruikersnaam en wachtwoord en de app meldt automatisch aan als je geconnecteerd bent met een Telenet Hot/HomeSpot.\n
+    Je hoeft de applicatie niet te laten draaien. Eenmaal je de gebruikers-gegevens hebt ingevuld, zal de applicatie telkens zelf opstarten wanneer nodig\n
+    Als je aangemeld bent, zal je ook de mogelijkheid hebben om manueel uit te loggen via de app.\n
+    Verder kan je jouw favoriete WIFI-aanmeldpunten sorteren zodat de hoogst genoteerde ook eerder gebruikt gaat worden.\n
+    Dit is vooral belangrijk als je thuis ook een Homespot draait, maar toch liever de voorkeur geeft jouw eigen WIFI-netwerk te gebruiken.\n
+    </string>
+    <string name="aboutfooter">
+    
+    Geschreven en gepubliceerd door jo.giraerts@gmail.com
+    
+    </string>
+    <string name="menu_preferences">Voorkeuren</string>
+    <string name="username_label">Gebruikersnaam</string>
+    <string name="password_label">Wachtwoord</string>
+    <string name="telenet_hotspot_autologin_about">TelenetHotspot AutoLogin - Help</string>
+    <string name="connected">--- Verbinding in orde ---</string>
+    <string name="disconnected">--- Geen netwerkverbinding ---</string>
+    <string name="prefs_save_error">Er was even een probleem met het bewaren van jouw gegevens. Gelieve opnieuw te proberen</string>
+    <string name="login_saved">Gebruikersnaam en wachtwoord bewaard!"</string>
+    <string name="login_success">U bent aangemeld</string>
+    <string name="login_failed">Aanmelden niet gelukt</string>
+    <string name="login_failed_nopw">Aanmelden niet gelukt: Lege gebruikersnaam/wachtwoord</string>
+</resources>
