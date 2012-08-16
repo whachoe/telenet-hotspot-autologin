@@ -1,5 +1,28 @@
 CHANGES
 
+3.0:
+. Visual overhaul: Modern look
+. Draggable list of hotspots to reorder their priorities
+. Extra language: Dutch 
+. You can now choose if you want either hotspot or homespot or both enabled
+
+2.3:
+. Fixed possible crash when switching fast between wifi-networks
+
+2.2:
+. Fixed bug with wrong credentials getting used in some cases
+
+2.1:
+. Made it clearer in notifications if it's a hotspot or a homespot
+. Extra preferences: Homespot Username/Password for people who use different logins on both systems.
+
+2.0:
+The long awaited Homespot-support!
+
+. Experimental login on Telenet Homespots through the WISPR-protocol
+. minor visual changes
+. major code optimisations
+
 1.5
 . Added CHANGE_WIFI_STATE permission for android version 2.3.4
 

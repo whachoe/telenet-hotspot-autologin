@@ -18,9 +18,9 @@
     
     </string>
     <string name="tab_main">Aanmelden</string>
-	<string name="tab_hotspotlist">Lijst</string>
-	<string name="tab_preferences">Voorkeuren</string>
-	<string name="tab_about">Help</string>
+    <string name="tab_hotspotlist">Lijst</string>
+    <string name="tab_preferences">Voorkeuren</string>
+    <string name="tab_about">Help</string>
     <string name="menu_preferences">Voorkeuren</string>
     <string name="username_label">Gebruikersnaam</string>
     <string name="password_label">Wachtwoord</string>
@@ -33,4 +33,19 @@
     <string name="login_failed">Aanmelden niet gelukt</string>
     <string name="login_failed_nopw">Aanmelden niet gelukt: Lege gebruikersnaam/wachtwoord</string>
     <string name="save_succesful">HotspotLijst is bewaard</string>
+    <string name="prefs_show_notifications_summary">Wil je een melding krijgen na het automatisch aanmelden?</string>
+    <string name="prefs_show_notifications_title">Toon meldingen</string>
+    <string name="prefs_login_hotspot_summary">Wil je automatisch inloggen op Telenet Hotspots?</string>
+    <string name="enable">Inschakelen</string>
+    <string name="prefs_userid_summary">Als jouw Hotspot-login verschilt van jouw Homespot-login</string>
+    <string name="prefs_userid_title">Hotspot Gebruikersnaam</string>
+    <string name="prefs_userpw_summary">Als jouw Hotspot-login verschilt van jouw Homespot-login</string>
+    <string name="prefs_userpw_title">Hotspot Wachtwoord</string>
+    <string name="telenet_hotspot">Telenet Hotspot</string>
+    <string name="telenet_homespot">Telenet Homespot</string>
+    <string name="prefs_login_homespot_summary">Wil je automatisch inloggen op Telenet Homespots?</string>
+    <string name="prefs_userid_homespot_summary">Als jouw Homespot-login verschilt van jouw Hotspot-login</string>
+    <string name="prefs_userid_homespot_title">Homespot Gebruikersnaam</string>
+    <string name="prefs_userpw_homespot_summary">Als jouw Homespot-login verschilt van jouw Hotspot-loginn</string>
+    <string name="prefs_userpw_homespot_title">Homespot Wachtwoord</string>
 </resources>

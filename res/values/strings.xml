@@ -18,9 +18,9 @@
     
     </string>
     <string name="tab_main">Main</string>
-	<string name="tab_hotspotlist">List</string>
-	<string name="tab_preferences">Settings</string>
-	<string name="tab_about">About</string>
+    <string name="tab_hotspotlist">List</string>
+    <string name="tab_preferences">Settings</string>
+    <string name="tab_about">About</string>
     <string name="menu_preferences">Settings</string>
     <string name="username_label">Username</string>
     <string name="password_label">Password</string>
@@ -33,4 +33,19 @@
     <string name="login_failed">Login failed</string>
     <string name="login_failed_nopw">Login failed: Empty username/password</string>
     <string name="save_succesful">List succesfully saved</string>
+    <string name="prefs_show_notifications_summary">Do you want to be notified when logged in?</string>
+    <string name="prefs_show_notifications_title">Show Notifications</string>
+    <string name="prefs_login_hotspot_summary">Do you want to log into Telenet Hotspots?</string>
+    <string name="enable">Enable</string>
+    <string name="prefs_userid_summary">If your Hotspot-login is different from Homespot-login</string>
+    <string name="prefs_userid_title">Hotspot Username</string>
+    <string name="prefs_userpw_summary">If your Hotspot-login is different from Homespot-login</string>
+    <string name="prefs_userpw_title">Hotspot Password</string>
+    <string name="telenet_hotspot">Telenet Hotspot</string>
+    <string name="telenet_homespot">Telenet Homespot</string>
+    <string name="prefs_login_homespot_summary">Do you want to log into Telenet Homespots?</string>
+    <string name="prefs_userid_homespot_summary">If your Homespot-login is different from Hotspot-login</string>
+    <string name="prefs_userid_homespot_title">Homespot Username</string>
+    <string name="prefs_userpw_homespot_summary">If your Homespot-login is different from Hotspot-login</string>
+    <string name="prefs_userpw_homespot_title">Homespot Password</string>
 </resources>
