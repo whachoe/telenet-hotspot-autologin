@@ -43,15 +43,17 @@ public class FavWiFiFragment extends SherlockListFragment {
 		// Get the current WIFI
 		wm = (WifiManager) getActivity().getSystemService(Activity.WIFI_SERVICE);
 		List<WifiConfiguration> wifilist = wm.getConfiguredNetworks();
-				
-		Collections.sort(wifilist, new Comparator<WifiConfiguration>() {
-			@Override
-			public int compare(WifiConfiguration lhs, WifiConfiguration rhs) {
-				// Reversed sorting: we compare rhs instead of lhs
-				Integer l = new Integer(rhs.priority);
-				return l.compareTo(lhs.priority);
-			}
-		});
+		
+		if (wifilist != null) {
+			Collections.sort(wifilist, new Comparator<WifiConfiguration>() {
+				@Override
+				public int compare(WifiConfiguration lhs, WifiConfiguration rhs) {
+					// Reversed sorting: we compare rhs instead of lhs
+					Integer l = new Integer(rhs.priority);
+					return l.compareTo(lhs.priority);
+				}
+			});
+		}
 		
 		TouchListView tlv=(TouchListView) getListView();
 		adapter=new IconicAdapter(wifilist);

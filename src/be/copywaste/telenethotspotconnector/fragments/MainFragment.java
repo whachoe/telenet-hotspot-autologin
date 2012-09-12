@@ -34,6 +34,7 @@ public class MainFragment extends SherlockFragment {
 	EditText useridview, userpwview;
 	private static SharedPreferences prefs;
 	private View root;
+	private AsyncWifiInfo WifiInfoLoader;
 	
 	BroadcastReceiver networkStateReceiver = new BroadcastReceiver() {
 	    @Override
@@ -41,8 +42,6 @@ public class MainFragment extends SherlockFragment {
 	    	new AsyncWifiInfo().execute();
 	    }
 	};
-	
-	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -136,12 +135,15 @@ public class MainFragment extends SherlockFragment {
 		IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);        
 		getActivity().registerReceiver(networkStateReceiver, filter);
 		
-		new AsyncWifiInfo().execute();
+		WifiInfoLoader = new AsyncWifiInfo();
+		WifiInfoLoader.execute();
 	}
 	
 	@Override
 	public void onPause() {
 		getActivity().unregisterReceiver(networkStateReceiver);
+		WifiInfoLoader.cancel(true);
+		
 		super.onPause();
 	}
 	
