@@ -39,6 +39,11 @@ public class FavWiFiFragment extends SherlockListFragment {
 
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
 		
 		// Get the current WIFI
 		wm = (WifiManager) getActivity().getSystemService(Activity.WIFI_SERVICE);
@@ -62,7 +67,8 @@ public class FavWiFiFragment extends SherlockListFragment {
 		tlv.setDropListener(onDrop);
 		tlv.setRemoveListener(onRemove);
 	}
-
+	
+	
 	private TouchListView.DropListener onDrop=new TouchListView.DropListener() {
 		@Override
 		public void drop(int from, int to) {
@@ -119,7 +125,7 @@ public class FavWiFiFragment extends SherlockListFragment {
 			wm.updateNetwork(wi);
 		}
 		
-		adapter.notifyDataSetChanged();
+		// adapter.notifyDataSetChanged();
 		Toast.makeText(getActivity(), getString(R.string.save_succesful), Toast.LENGTH_LONG).show();
 		super.onPause();
 	}
