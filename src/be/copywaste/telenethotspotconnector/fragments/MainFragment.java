@@ -39,7 +39,8 @@ public class MainFragment extends SherlockFragment {
 	BroadcastReceiver networkStateReceiver = new BroadcastReceiver() {
 	    @Override
 	    public void onReceive(Context context, Intent intent) {
-	    	new AsyncWifiInfo().execute();
+	    	WifiInfoLoader = new AsyncWifiInfo();
+			WifiInfoLoader.execute();
 	    }
 	};
 	
@@ -168,8 +169,9 @@ public class MainFragment extends SherlockFragment {
 		@Override
 		protected void onPostExecute(Boolean didwelogin) {
 			// Set status of button depending on our web-connectivity
-			if (didwelogin && telenetHotspotConnectorApplication.webIsReachable()) {
-				loginbutton.setChecked(true);
+			if (didwelogin) {
+				WifiInfoLoader = new AsyncWifiInfo();
+				WifiInfoLoader.execute();
 			} else {
 				loginbutton.setChecked(false);
 			}
@@ -186,11 +188,8 @@ public class MainFragment extends SherlockFragment {
 		@Override
 		protected void onPostExecute(Void unused) {
 			// Set status of button depending on our web-connectivity
-			if (telenetHotspotConnectorApplication.webIsReachable()) {
-				loginbutton.setChecked(true);
-			} else {
-				loginbutton.setChecked(false);
-			}
+			WifiInfoLoader = new AsyncWifiInfo();
+			WifiInfoLoader.execute();
 		}
 	}
 	

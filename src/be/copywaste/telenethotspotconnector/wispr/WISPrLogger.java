@@ -79,7 +79,9 @@ public class WISPrLogger implements WebLogger {
 					res = WISPrConstants.WISPR_NOT_PRESENT;
 				}
 			} else {
-				res = WISPrConstants.WISPR_NOT_PRESENT;
+				// res = WISPrConstants.WISPR_NOT_PRESENT;
+				// Temporarily hardcoded to work around a telenet-bug
+				res = WISPrConstants.WISPR_RESPONSE_CODE_LOGIN_SUCCEEDED;
 			}
 		}
 

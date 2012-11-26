@@ -1,5 +1,7 @@
 package be.copywaste.telenethotspotconnector;
 
+//import org.copywaste.androidchangelog.AndroidChangelog;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,10 +17,11 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
 public class telenetHotspotConnector extends SherlockFragmentActivity {
-
 	// Constants
 	private static final int ACTIVITY_ABOUT = 1;
 	private static final int ACTIVITY_PREFERENCES = 2;
+	private static final int ACTIVITY_CHANGELOG = 3;
+	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -46,8 +49,16 @@ public class telenetHotspotConnector extends SherlockFragmentActivity {
 	    	int selectedTab = savedInstanceState.getInt("selected_tab");
 	    	actionBar.selectTab(actionBar.getTabAt(selectedTab));
 	    }
+	    
+	    // Changelog
+//	    String bla = getString(R.string.changelog);
+//	    AndroidChangelog cl = new AndroidChangelog(this, bla);
+//	    // Only use next line when debugging the changelog:
+//	    if (telenetHotspotConnectorApplication.DEV)
+//	    	cl.resetVersion();
+//	    cl.init();
 	}
-
+	
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		outState.putInt("selected_tab", (int) getSupportActionBar().getSelectedTab().getPosition());
@@ -60,6 +71,10 @@ public class telenetHotspotConnector extends SherlockFragmentActivity {
 		super.onCreateOptionsMenu(menu);
 		menu.add(0, ACTIVITY_PREFERENCES, 1, R.string.menu_preferences);
 		menu.add(1, ACTIVITY_ABOUT, 2, R.string.menu_about);
+		
+		// Code for Changelog
+		//menu.add(2, ACTIVITY_CHANGELOG, 3, "Changelog");
+		
 		return true;
 	}
 
@@ -75,7 +90,12 @@ public class telenetHotspotConnector extends SherlockFragmentActivity {
 			
 		case ACTIVITY_PREFERENCES:
 			startActivity(new Intent(this, EditPreferences.class));
-			return(true);	
+			return(true);
+
+		// Code for Changelog	
+		case ACTIVITY_CHANGELOG: 
+//			AndroidChangelog.getInstance().showChangelog();
+			return(true);
 		}
 		
 		return bla;

@@ -5,7 +5,8 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class WISPrInfoHandler extends DefaultHandler {
 	enum Tag {
-		wispaccessgatewayparam, redirect, accessprocedure, loginurl, abortloginurl, messagetype, responsecode, accesslocation, locationname
+		wispaccessgatewayparam, redirect, accessprocedure, 
+		loginurl, abortloginurl, messagetype, responsecode, accesslocation, locationname
 	}
 
 	private Tag actualTag;

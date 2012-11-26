@@ -123,6 +123,7 @@ public class telenetHotspotConnectorApplication extends Application {
 			// Check if server response is valid
 			StatusLine status = response.getStatusLine();
 			if (status.getStatusCode() != HTTP_STATUS_OK) {
+				telenetHotspotConnectorApplication.logger("BAD REQUEST: "+EntityUtils.toString(response.getEntity()));
 				throw new ApiException("Invalid response from server: " +
 						status.toString());
 			}
@@ -175,6 +176,7 @@ public class telenetHotspotConnectorApplication extends Application {
             // Check if server response is valid
             StatusLine status = response.getStatusLine();
             if (status.getStatusCode() != HTTP_STATUS_OK) {
+            	telenetHotspotConnectorApplication.logger("BAD REQUEST: "+ response.getEntity().toString());
                 throw new ApiException("Invalid response from server: " +
                         status.toString());
             }

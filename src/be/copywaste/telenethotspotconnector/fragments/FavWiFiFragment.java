@@ -58,14 +58,14 @@ public class FavWiFiFragment extends SherlockListFragment {
 					return l.compareTo(lhs.priority);
 				}
 			});
+		
+		  TouchListView tlv=(TouchListView) getListView();
+		  adapter=new IconicAdapter(wifilist);
+		  setListAdapter(adapter);
+		
+		  tlv.setDropListener(onDrop);
+		  tlv.setRemoveListener(onRemove);
 		}
-		
-		TouchListView tlv=(TouchListView) getListView();
-		adapter=new IconicAdapter(wifilist);
-		setListAdapter(adapter);
-		
-		tlv.setDropListener(onDrop);
-		tlv.setRemoveListener(onRemove);
 	}
 	
 	

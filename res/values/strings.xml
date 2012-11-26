@@ -48,4 +48,14 @@
     <string name="prefs_userid_homespot_title">Homespot Username</string>
     <string name="prefs_userpw_homespot_summary">If your Homespot-login is different from Hotspot-login</string>
     <string name="prefs_userpw_homespot_title">Homespot Password</string>
+    <string name="changelog"><![CDATA[
+    <b>3.1:</b><br> 
+. Fix for an infrequent crash in wifilist<br>
+<br>
+<b>3.0:</b><br>
+. Visual overhaul: Modern look<br>
+. Draggable list of hotspots to reorder their priorities<br>
+. Extra language: Dutch <br>
+. You can now choose if you want either hotspot or homespot or both enabled<br>]]>
+</string>
 </resources>
