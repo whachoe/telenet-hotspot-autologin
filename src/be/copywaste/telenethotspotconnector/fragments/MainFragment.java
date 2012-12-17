@@ -169,12 +169,12 @@ public class MainFragment extends SherlockFragment {
 		@Override
 		protected void onPostExecute(Boolean didwelogin) {
 			// Set status of button depending on our web-connectivity
-			if (didwelogin) {
+//			if (didwelogin) {
 				WifiInfoLoader = new AsyncWifiInfo();
 				WifiInfoLoader.execute();
-			} else {
-				loginbutton.setChecked(false);
-			}
+//			} else {
+//				loginbutton.setChecked(false);
+//			}
 		}
 	}
 
