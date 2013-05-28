@@ -33,6 +33,11 @@ public class wifiReceiver extends BroadcastReceiver {
 				telenetHotspotConnectorApplication.logger("SSID: "+ssid);
 			}
 			
+			if (telenetHotspotConnectorApplication.webIsReachable()) {
+				telenetHotspotConnectorApplication.logger("We already have Internet access, no need to login");
+				return;
+			}
+			
 			// Checking SSID
 			if (ssid != null && (ssid.equals(telenetHotspotConnectorApplication.hotspotssid) || ssid.equals(telenetHotspotConnectorApplication.homespotssid))) {
 				// This string is just used for the notification message
