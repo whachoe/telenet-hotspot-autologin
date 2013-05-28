@@ -27,13 +27,15 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.SharedPreferences;
+import android.os.StrictMode;
 import android.util.Log;
 import android.util.SparseArray;
 
 public class telenetHotspotConnectorApplication extends Application {
-    public static final boolean DEV = false;
+    public static final boolean DEV = true;
     public static final String LOGGER_TAG = "hotspotConnector";
     // public static final String hotspotssid = "404 Network not available"; // testing
     public static final String hotspotssid = "TELENETHOTSPOT";
@@ -91,8 +93,14 @@ public class telenetHotspotConnectorApplication extends Application {
     	return login(loginurl,nameValuePairs);
     }
     
-    public static String login(String loginurl, List<NameValuePair> params) throws ApiException 
+    @SuppressLint("NewApi")
+	public static String login(String loginurl, List<NameValuePair> params) throws ApiException 
     {
+        if (Integer.valueOf(android.os.Build.VERSION.SDK) >= 9) {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+		}
+        
 		SchemeRegistry schemeRegistry = new SchemeRegistry();
 		schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
 		
@@ -139,13 +147,21 @@ public class telenetHotspotConnectorApplication extends Application {
 		} catch (IOException e) {
 			logger(e);
 			throw new ApiException("Problem communicating with API ("+e.getMessage()+")", e);
-		}
+		} catch (Exception e) {
+        	logger(e);
+        	return "";
+        }
 		
 		return null;    	
     }
     
-    public static String getSSLPage(String url) throws ApiException
+    @SuppressLint("NewApi")
+	public static String getSSLPage(String url) throws ApiException
     {
+        if (Integer.valueOf(android.os.Build.VERSION.SDK) >= 9) {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+		}
     	// We're doing SSL here
 		SchemeRegistry schemeRegistry = new SchemeRegistry();
 		schemeRegistry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
@@ -188,11 +204,19 @@ public class telenetHotspotConnectorApplication extends Application {
             return contentstring;
         } catch (IOException e) {
             throw new ApiException("Problem communicating with API ("+e.getMessage()+")", e);
+        } catch (Exception e) {
+        	logger(e);
+        	return "";
         }
     }
 
-    protected static String getPage(String url) throws ApiException
+    @SuppressLint("NewApi")
+	protected static String getPage(String url) throws ApiException
     {
+        if (Integer.valueOf(android.os.Build.VERSION.SDK) >= 9) {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+		}
 		// Setting up basic communication 
 		HttpParams httpParameters = new BasicHttpParams();
     	
@@ -239,6 +263,9 @@ public class telenetHotspotConnectorApplication extends Application {
             return returnstring;
         } catch (IOException e) {
             throw new ApiException("Problem communicating with API ("+e.getMessage()+")", e);
+        } catch (Exception e) {
+        	logger(e);
+        	return "";
         }
     }
 
