@@ -247,7 +247,7 @@ public class MainFragment extends SherlockFragment {
 				textRssi.setText(String.valueOf(myWifiInfo.getRssi()));
 
 				// When connected, check if we're logged in
-				if (myWifiInfo.getSSID().equals(telenetHotspotConnectorApplication.hotspotssid) || myWifiInfo.getSSID().equals(telenetHotspotConnectorApplication.homespotssid)) {
+				if (myWifiInfo.getSSID().replaceAll("^\"|\"$", "").equals(telenetHotspotConnectorApplication.hotspotssid) || myWifiInfo.getSSID().replaceAll("^\"|\"$", "").equals(telenetHotspotConnectorApplication.homespotssid)) {
 					loginbutton.setVisibility(View.VISIBLE);
 					
 					// We are checking if we can reach the testurl:
