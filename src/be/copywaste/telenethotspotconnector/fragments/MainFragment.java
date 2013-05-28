@@ -156,14 +156,14 @@ public class MainFragment extends SherlockFragment {
 	class AsyncLogin extends AsyncTask<Void, String, Boolean> {
 
 		protected Boolean doInBackground(Void... params) {
-			SparseArray<String> creds = telenetHotspotConnectorApplication.getCredentialsForSSID(textSsid.getText().toString(), prefs);
+			SparseArray<String> creds = telenetHotspotConnectorApplication.getCredentialsForSSID(textSsid.getText().toString().replaceAll("^\"|\"$", ""), prefs);
 			String userid=""; String userpw="";
 			if (creds != null) {
 				userid = creds.get(0); 
 				userpw = creds.get(1);
 			}
 
-			return Boolean.valueOf(telenetHotspotConnectorApplication.doLogin(textSsid.getText().toString(), userid, userpw));
+			return Boolean.valueOf(telenetHotspotConnectorApplication.doLogin(textSsid.getText().toString().replaceAll("^\"|\"$", ""), userid, userpw));
 		}
 		
 		@Override
