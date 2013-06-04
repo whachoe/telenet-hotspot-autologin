@@ -28,8 +28,14 @@ public class wifiReceiver extends BroadcastReceiver {
 			// Getting SSID
 			telenetHotspotConnectorApplication.logger("It is a WIFI change");
 			String ssid = myWifiInfo.getSSID();
+			ssid = ssid.replaceAll("^\"|\"$", "");
 			if (ssid != null && !ssid.equals("")) {
 				telenetHotspotConnectorApplication.logger("SSID: "+ssid);
+			}
+			
+			if (telenetHotspotConnectorApplication.webIsReachable()) {
+				telenetHotspotConnectorApplication.logger("We already have Internet access, no need to login");
+				return;
 			}
 			
 			// Checking SSID
